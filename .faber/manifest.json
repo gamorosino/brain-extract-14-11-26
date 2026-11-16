@@ -1,0 +1,52 @@
+{
+  "name": "brain-extract-14-11-26",
+  "github": "gamorosino/brain-extract-14-11-26",
+  "github_branch": "main",
+  "config": {
+    "t1": { "type": "input", "file_id": "t1", "input_id": "t1w" },
+    "frac": {
+      "id": "frac",
+      "type": "number",
+      "placeholder": "0.5",
+      "advanced": false,
+      "desc": "BET fractional intensity threshold (0–1). Lower values give a larger brain estimate.",
+      "default": 0.5
+    },
+    "robust": {
+      "id": "robust",
+      "type": "boolean",
+      "placeholder": "",
+      "advanced": false,
+      "desc": "Use BET's robust brain centre estimation (-R).",
+      "default": false
+    },
+    "bias_neck_cleanup": {
+      "id": "bias_neck_cleanup",
+      "type": "boolean",
+      "placeholder": "",
+      "advanced": true,
+      "desc": "Bias field and neck clean-up (-B).",
+      "default": false
+    }
+  },
+  "inputs": [
+    {
+      "id": "t1w",
+      "desc": "Input T1-weighted NIfTI volume to skull-strip.",
+      "datatype": "neuro/anat/t1w",
+      "datatype_tags": [],
+      "optional": false,
+      "multi": false,
+      "advanced": false
+    }
+  ],
+  "outputs": [
+    {
+      "id": "t1_brain",
+      "desc": "Brain-extracted (skull-stripped) T1w volume produced by FSL BET.",
+      "datatype": "neuro/anat/t1w",
+      "datatype_tags": [],
+      "archive": true
+    }
+  ]
+}
